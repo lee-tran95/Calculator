@@ -9,13 +9,20 @@
 .screen{
     flex: 1 0 100%;
     border: 1px solid black;
-    padding-bottom: 10%;
+    text-align-last: right;
+    font-size: 4rem;
+    padding-top: 50px;
 }
 .button{
-    flex: 1 0 20%;
+    flex: 1 0 100px;
     border: 1px solid black;
     text-align: center;
-    padding-top: 10%
+    padding-top: 15px;
+    background-color: rgb(42, 117, 216);
+    font-size: 3rem;
+}
+.operator{
+    background-color: rgb(161, 94, 17);
 }
 .zero{
     flex: 1 0 45%
