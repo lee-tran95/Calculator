@@ -1,0 +1,23 @@
+.calculator{
+    width: 500px;
+    height:600px;
+    display: flex;
+    border: 5px solid black;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+.screen{
+    flex: 1 0 100%;
+    border: 1px solid black;
+    padding-bottom: 10%;
+}
+.button{
+    flex: 1 0 20%;
+    border: 1px solid black;
+    text-align: center;
+    padding-top: 10%
+}
+.zero{
+    flex: 1 0 45%
+}
+
