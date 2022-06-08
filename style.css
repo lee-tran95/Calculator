@@ -21,7 +21,8 @@
     background-color: rgb(42, 117, 216);
     font-size: 3rem;
 }
-.operator{
+.operator,
+.operate{
     background-color: rgb(161, 94, 17);
 }
 .zero{
