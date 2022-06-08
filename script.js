@@ -5,19 +5,19 @@ let operator = '';
 let decimal = false;
 
 function add (num1,num2){
-    return [+num1 + +num2];
+    return [Math.round((+num1 + +num2)*100)/100];
 }
 
 function subtract(num1,num2){
-    return [+num1 - +num2];
+    return [Math.round((+num1 - +num2)*100)/100];
 }
 
 function multiply(num1,num2){
-    return [+num1 * +num2];
+    return [Math.round((+num1 * +num2)*100)/100];
 }
 
 function divide(num1,num2){
-    return [+num1 / +num2];
+    return [Math.round((+num1 / +num2)*100)/100];
 }
 
 function operate(operator, num1, num2){
@@ -38,6 +38,7 @@ function operate(operator, num1, num2){
     }
 }
 
+document.querySelector('.clear').addEventListener('click', clear)
 function clear(){
     numbersArray = [];
     num1 = [];
@@ -84,10 +85,14 @@ operatorButton.forEach(item =>{
             num1 = result.join('');
             numbersArray = [];
             operator = item.innerText;
+            decimal = false;
+        }else if(num1.length > 0 && operator === ''){
+            operator = item.innerText;
         }else{
-        operator = item.innerText;
-        num1 = numbersArray.join('');
-        numbersArray = [];
+            operator = item.innerText;
+            num1 = numbersArray.join('');
+            numbersArray = [];
+            decimal = false;
         }
     })
 })
@@ -99,7 +104,17 @@ equal.addEventListener('click', () =>{
         num2 = numbersArray.join('');
         let result = operate(operator,num1,num2)
         if(result) displayScreen(result)
+        num1 = result.join('');
+        numbersArray = [];
+        operator = '';
     }
 })
 
-document.querySelector('.clear').addEventListener('click', clear)
+const decimalButton = document.querySelector('.decimal');
+    decimalButton.addEventListener('click',()=>{
+    if(numbersArray.length < 15 && decimal === false){
+        numbersArray.push(decimalButton.innerText)
+        displayScreen(numbersArray)
+    }
+    decimal = true;
+})
